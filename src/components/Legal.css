@@ -1,0 +1,38 @@
+.impact-section {
+    padding: 8rem 0;
+    background: var(--hope);
+    color: white;
+    text-align: center;
+}
+
+.impact-highlight {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    margin: 2rem 0;
+    line-height: 1.3;
+    font-family: 'Syne', sans-serif;
+}
+
+.impact-number {
+    color: var(--accent);
+    display: block;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.legal-disclaimer {
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .impact-highlight {
+        font-size: 1.8rem;
+    }
+}
