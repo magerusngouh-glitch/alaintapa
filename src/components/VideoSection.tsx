@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import './VideoSection.css';
 
@@ -31,7 +30,7 @@ const VideoSection = () => {
                         <iframe
                             width="560"
                             height="315"
-                            src="https://www.youtube.com/embed/AZFmgojP1WI"
+                            src="https://www.youtube.com/embed/SWcKafD--Ck"
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
