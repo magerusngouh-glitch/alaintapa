@@ -2,6 +2,29 @@ import { motion } from 'framer-motion';
 import './VideoSection.css';
 
 const VideoSection = () => {
+    const videos = [
+        {
+            id: 'SWcKafD--Ck',
+            title: 'Présentation XMEV.AI',
+            description: 'Découvrez les bases de la plateforme et comment commencer à générer des revenus.'
+        },
+        {
+            id: 'wJ3ms3JHLEQ',
+            title: 'Stratégie de Trading AI',
+            description: 'Comment notre intelligence artificielle optimise les opportunités de MEV en temps réel.'
+        },
+        {
+            id: 'csTTGkZd7mM',
+            title: 'Preuves de Retrait & Gains',
+            description: 'Témoignages et démonstration de la transparence des profits générés.'
+        },
+        {
+            id: 'AZFmgojP1WI',
+            title: 'Comprendre l\'Arbitrage MEV',
+            description: 'Une plongée technique dans le fonctionnement des bots de MEV sur la blockchain.'
+        }
+    ];
+
     return (
         <section id="videos" className="video-section">
             <div className="container">
@@ -12,43 +35,49 @@ const VideoSection = () => {
                     viewport={{ once: true }}
                     className="section-header text-center"
                 >
-                    <span className="badge badge-accent">Présentation Vidéo</span>
-                    <h2 className="section-title">Découvrez XMEV.AI en Action</h2>
+                    <span className="badge badge-accent">Vidéothèque XMEV</span>
+                    <h2 className="section-title">Comprendre XMEV.AI en détail</h2>
                     <p className="section-description">
-                        Regardez cette vidéo pour comprendre comment l'intelligence artificielle révolutionne l'investissement crypto et comment vous pouvez en bénéficier.
+                        Plongez dans l'univers de l'arbitrage MEV à travers nos guides vidéos et démonstrations en direct.
                     </p>
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="video-container glass-card"
-                >
-                    <div className="iframe-wrapper">
-                        <iframe
-                            width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/SWcKafD--Ck"
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
+                <div className="video-grid">
+                    {videos.map((video, index) => (
+                        <motion.div
+                            key={video.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="video-item glass-card"
+                        >
+                            <div className="iframe-wrapper">
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${video.id}`}
+                                    title={video.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                            <div className="video-item-info">
+                                <h3>{video.title}</h3>
+                                <p>{video.description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
 
-                    <div className="video-info">
-                        <h3>Comprendre le MEV Arbitrage</h3>
-                        <p>
-                            Cette présentation vous explique les fondements techniques et les opportunités de revenus passifs offertes par la plateforme XMEV.AI.
-                        </p>
-                        <div className="video-cta">
-                            <a href="https://xmev.ai?inviteCode=2CZHNWWA" target="_blank" rel="noopener noreferrer" className="cta-button">
-                                Commencer maintenant
-                            </a>
-                        </div>
-                    </div>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-center mt-xl"
+                >
+                    <a href="https://xmev.ai?inviteCode=2CZHNWWA" target="_blank" rel="noopener noreferrer" className="cta-button">
+                        Ouvrir mon compte maintenant
+                    </a>
                 </motion.div>
             </div>
         </section>
