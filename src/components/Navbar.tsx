@@ -18,6 +18,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Accueil', href: '#home' },
     { name: 'Investir', href: '#investir' },
+    { name: 'Vidéos', href: '#videos' },
     { name: 'XMEV AI', href: '#xmev' },
     { name: 'Comment ça marche', href: '#comment' },
     { name: 'Transparence', href: '#transparence' },

@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Methodology from './components/Methodology';
 import Research from './components/Research';
+import VideoSection from './components/VideoSection';
 import Education from './components/Education';
 import Access from './components/Access';
 import Legal from './components/Legal';
@@ -17,6 +18,7 @@ function App() {
         <Hero />
         <Methodology />
         <Research />
+        <VideoSection />
         <Education />
         <Access />
         <Legal />
