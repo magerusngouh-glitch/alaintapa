@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, TrendingUp, PlayCircle, Calculator, Cpu, HelpCircle, ShieldCheck, UserPlus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,32 +16,86 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Accueil', href: '#home' },
-    { name: 'Investir', href: '#investir' },
-    { name: 'Vidéos', href: '#videos' },
-    { name: 'Simulateur', href: '#table' },
-    { name: 'XMEV AI', href: '#xmev' },
-    { name: 'Comment ça marche', href: '#comment' },
-    { name: 'Transparence', href: '#transparence' },
-    { name: 'S\'inscrire', href: 'https://xmev.ai?inviteCode=2CZHNWWA' },
+  const megaMenu = [
+    {
+      title: 'Opportunité',
+      id: 'opportunity',
+      items: [
+        { name: 'Investir', href: '#investir', desc: 'Découvrez la réalité du marché', icon: TrendingUp },
+        { name: 'Vidéos', href: '#videos', desc: 'Présentations et tutoriels', icon: PlayCircle },
+        { name: 'Simulateur', href: '#table', desc: 'Calculez vos gains potentiels', icon: Calculator },
+      ]
+    },
+    {
+      title: 'Plateforme',
+      id: 'platform',
+      items: [
+        { name: 'XMEV AI', href: '#xmev', desc: 'Notre technologie d\'arbitrage', icon: Cpu },
+        { name: 'Comment ça marche', href: '#comment', desc: 'Guide étape par étape', icon: HelpCircle },
+        { name: 'Transparence', href: '#transparence', desc: 'Sécurité et audits réels', icon: ShieldCheck },
+      ]
+    }
   ];
+
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    setActiveDropdown(null);
+  };
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <a href="#home" className="logo">XMEV.AI</a>
+        <a href="#home" className="logo" onClick={handleLinkClick}>XMEV.AI</a>
 
         {/* Desktop Nav */}
-        <ul className="nav-desktop">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <a href={link.href} className="nav-link">
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="nav-desktop-wrapper">
+          <ul className="nav-desktop">
+            <li><a href="#home" className="nav-link" onClick={handleLinkClick}>Accueil</a></li>
+
+            {megaMenu.map((category) => (
+              <li
+                key={category.id}
+                className="nav-item-has-dropdown"
+                onMouseEnter={() => setActiveDropdown(category.id)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button className={`nav-link dropdown-trigger ${activeDropdown === category.id ? 'active' : ''}`}>
+                  {category.title} <ChevronDown size={16} />
+                </button>
+                <AnimatePresence>
+                  {activeDropdown === category.id && (
+                    <motion.div
+                      className="mega-menu"
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 15 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="mega-menu-content">
+                        {category.items.map((item) => (
+                          <a key={item.name} href={item.href} className="mega-menu-item" onClick={handleLinkClick}>
+                            <div className="mega-menu-icon" style={{ background: category.id === 'opportunity' ? 'var(--primary-light)' : 'var(--secondary-light)' }}>
+                              <item.icon size={20} color="white" />
+                            </div>
+                            <div className="mega-menu-text">
+                              <span className="mega-menu-name">{item.name}</span>
+                              <span className="mega-menu-desc">{item.desc}</span>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </li>
+            ))}
+          </ul>
+
+          <a href="https://xmev.ai?inviteCode=2CZHNWWA" className="nav-cta">
+            <UserPlus size={18} />
+            S'inscrire
+          </a>
+        </div>
 
         {/* Mobile Toggle */}
         <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
@@ -59,17 +114,37 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
           >
             <ul className="mobile-list">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="mobile-nav-link"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </a>
+              <li><a href="#home" className="mobile-nav-link" onClick={handleLinkClick}>Accueil</a></li>
+
+              {megaMenu.map((category) => (
+                <li key={category.id} className="mobile-category">
+                  <span className="mobile-category-title">{category.title}</span>
+                  <div className="mobile-subcategory-list">
+                    {category.items.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="mobile-nav-link sublink"
+                        onClick={handleLinkClick}
+                      >
+                        <item.icon size={18} />
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
                 </li>
               ))}
+
+              <li>
+                <a
+                  href="https://xmev.ai?inviteCode=2CZHNWWA"
+                  className="mobile-nav-link cta"
+                  onClick={handleLinkClick}
+                >
+                  <UserPlus size={18} />
+                  S'inscrire sur XMEV.AI
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}
