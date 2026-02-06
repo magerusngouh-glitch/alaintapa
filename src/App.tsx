@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Methodology from './components/Methodology';
 import Research from './components/Research';
 import VideoSection from './components/VideoSection';
+import ProfitTable from './components/ProfitTable';
 import Education from './components/Education';
 import Access from './components/Access';
 import Legal from './components/Legal';
@@ -19,6 +20,7 @@ function App() {
         <Methodology />
         <Research />
         <VideoSection />
+        <ProfitTable />
         <Education />
         <Access />
         <Legal />

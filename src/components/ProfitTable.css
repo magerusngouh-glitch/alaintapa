@@ -1,0 +1,89 @@
+.profit-section {
+    background: radial-gradient(circle at 50% 10%, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+}
+
+.table-wrapper {
+    padding: 2px;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    border-radius: calc(var(--radius-xl) - 2px);
+    background: var(--dark);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    font-family: 'Inter', sans-serif;
+}
+
+th {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--light);
+    padding: var(--spacing-md);
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(16, 185, 129, 0.3);
+}
+
+th span {
+    color: var(--success);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+td {
+    padding: var(--spacing-md);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--light-darker);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    transition: all 0.2s ease;
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--light);
+}
+
+.cpi-col {
+    color: var(--success) !important;
+    font-weight: 800;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.year-col {
+    color: var(--accent) !important;
+    font-weight: 800;
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.table-disclaimer {
+    padding: var(--spacing-md);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    text-align: center;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+
+    th,
+    td {
+        padding: var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+}
+
+.mt-xl {
+    margin-top: var(--spacing-2xl);
+}

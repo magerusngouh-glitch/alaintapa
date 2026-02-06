@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: 'Accueil', href: '#home' },
     { name: 'Investir', href: '#investir' },
     { name: 'Vidéos', href: '#videos' },
+    { name: 'Simulateur', href: '#table' },
     { name: 'XMEV AI', href: '#xmev' },
     { name: 'Comment ça marche', href: '#comment' },
     { name: 'Transparence', href: '#transparence' },
