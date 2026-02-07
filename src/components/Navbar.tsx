@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, TrendingUp, PlayCircle, Calculator, Cpu, HelpCircle, ShieldCheck, UserPlus } from 'lucide-react';
+import { Menu, X, ChevronDown, TrendingUp, PlayCircle, Calculator, Cpu, HelpCircle, ShieldCheck, UserPlus, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
@@ -31,6 +31,7 @@ const Navbar = () => {
       id: 'platform',
       items: [
         { name: 'XMEV AI', href: '#xmev', desc: 'Notre technologie d\'arbitrage', icon: Cpu },
+        { name: 'Documents', href: '#ressources', desc: 'Présentations PDF officielles', icon: FileText },
         { name: 'Comment ça marche', href: '#comment', desc: 'Guide étape par étape', icon: HelpCircle },
         { name: 'Transparence', href: '#transparence', desc: 'Sécurité et audits réels', icon: ShieldCheck },
       ]

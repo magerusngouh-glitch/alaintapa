@@ -5,6 +5,7 @@ import Research from './components/Research';
 import VideoSection from './components/VideoSection';
 import ProfitTable from './components/ProfitTable';
 import Education from './components/Education';
+import Resources from './components/Resources';
 import Access from './components/Access';
 import Legal from './components/Legal';
 import Footer from './components/Footer';
@@ -22,6 +23,7 @@ function App() {
         <VideoSection />
         <ProfitTable />
         <Education />
+        <Resources />
         <Access />
         <Legal />
       </main>
