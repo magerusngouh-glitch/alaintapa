@@ -22,6 +22,11 @@ const VideoSection = () => {
             id: 'AgJ13hLV9wg',
             title: 'Analyse & Résultats XMEV',
             description: 'Une analyse détaillée des performances récentes et des résultats obtenus par le bot.'
+        },
+        {
+            id: 'OgTsmrmCtQw',
+            title: 'Configuration & Tutoriel',
+            description: 'Apprenez à configurer votre compte et à lancer votre premier investissement étape par étape.'
         }
     ];
 
