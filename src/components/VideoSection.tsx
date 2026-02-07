@@ -19,9 +19,9 @@ const VideoSection = () => {
             description: 'Témoignages et démonstration de la transparence des profits générés.'
         },
         {
-            id: 'AZFmgojP1WI',
-            title: 'Comprendre l\'Arbitrage MEV',
-            description: 'Une plongée technique dans le fonctionnement des bots de MEV sur la blockchain.'
+            id: 'AgJ13hLV9wg',
+            title: 'Analyse & Résultats XMEV',
+            description: 'Une analyse détaillée des performances récentes et des résultats obtenus par le bot.'
         }
     ];
 
