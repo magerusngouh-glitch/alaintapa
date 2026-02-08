@@ -19,6 +19,11 @@ const VideoSection = () => {
             description: 'Apprenez comment activer votre robot d\'arbitrage pour lancer vos premiers profits.'
         },
         {
+            id: 'ACTIVER GOOGLE AUTH.mp4',
+            title: 'Sécurité : Activer Google Authy',
+            description: 'Sécurisez votre compte et vos retraits en activant la double authentification (2FA).'
+        },
+        {
             id: 'retrait instantanee de 1000$.mp4',
             title: 'Preuve de Retrait (1000$)',
             description: 'Démonstration de la rapidité et de la fiabilité des retraits instantanés.'
