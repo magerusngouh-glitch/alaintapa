@@ -9,24 +9,29 @@ const VideoSection = () => {
             description: 'Découvrez les bases de la plateforme et comment commencer à générer des revenus.'
         },
         {
-            id: 'wJ3ms3JHLEQ',
-            title: 'Stratégie de Trading AI',
-            description: 'Comment notre intelligence artificielle optimise les opportunités de MEV en temps réel.'
+            id: 'comment creer un compte smart.mp4',
+            title: 'Étape 1 : Créer son compte',
+            description: 'Guide complet pour créer et configurer votre compte Smart MEV en quelques minutes.'
         },
         {
-            id: 'csTTGkZd7mM',
-            title: 'Preuves de Retrait & Gains',
-            description: 'Témoignages et démonstration de la transparence des profits générés.'
+            id: 'comment activer votre compte mev.mp4',
+            title: 'Étape 2 : Activer le Bot',
+            description: 'Apprenez comment activer votre robot d\'arbitrage pour lancer vos premiers profits.'
         },
         {
-            id: 'AgJ13hLV9wg',
-            title: 'Analyse & Résultats XMEV',
-            description: 'Une analyse détaillée des performances récentes et des résultats obtenus par le bot.'
+            id: 'retrait instantanee de 1000$.mp4',
+            title: 'Preuve de Retrait (1000$)',
+            description: 'Démonstration de la rapidité et de la fiabilité des retraits instantanés.'
+        },
+        {
+            id: 'retrait de 7000$.mp4',
+            title: 'Retrait Réussi (7000$)',
+            description: 'Preuve de paiement de gains importants effectués sur la plateforme XMEV.'
         },
         {
             id: 'OgTsmrmCtQw',
-            title: 'Configuration & Tutoriel',
-            description: 'Apprenez à configurer votre compte et à lancer votre premier investissement étape par étape.'
+            title: 'Tutoriel Avancé',
+            description: 'Approfondissez votre stratégie d\'investissement avec ce guide complet.'
         }
     ];
 
@@ -58,13 +63,24 @@ const VideoSection = () => {
                             className="video-item glass-card"
                         >
                             <div className="iframe-wrapper">
-                                <iframe
-                                    src={`https://www.youtube.com/embed/${video.id}`}
-                                    title={video.title}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowFullScreen
-                                ></iframe>
+                                {video.id.endsWith('.mp4') ? (
+                                    <video
+                                        src={`/videos/${video.id}`}
+                                        controls
+                                        className="local-video"
+                                        poster="/assets/video-placeholder.jpg"
+                                    >
+                                        Votre navigateur ne supporte pas la lecture de vidéos.
+                                    </video>
+                                ) : (
+                                    <iframe
+                                        src={`https://www.youtube.com/embed/${video.id}`}
+                                        title={video.title}
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                    ></iframe>
+                                )}
                             </div>
                             <div className="video-item-info">
                                 <h3>{video.title}</h3>

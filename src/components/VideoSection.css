@@ -32,13 +32,16 @@
     margin-bottom: var(--spacing-md);
 }
 
-.iframe-wrapper iframe {
+.iframe-wrapper iframe,
+.local-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: none;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
 }
 
 .video-item-info {
